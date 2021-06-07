@@ -19,13 +19,19 @@ app.post('/', (req, res) => {
 //设置响应状态码
   res.statusCode = 333;
 //停止响应
-  res.end()
-  res.send("这是Post请求")
+  res.end("响应结束")
+
+
+  // res.send("这是Post请求")
 })
 
 
 app.put('/user', (req, res) => {
-  res.send("/user")
+  // res.send("/user");
+  //express中扩展的方法可以发送对象，但是其实他是被转换为JSON格式的字符串了
+  res.status(222).send({
+    class: 'Math'
+  })
 })
 
 app.delete('/user', (req, res) => {
